@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mi primera página</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #0d1117;
+      color: #e6edf3;
+      text-align: center;
+      padding: 40px 20px;
+    }
+    button {
+      background: #238636;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-size: 18px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>¡Hola, mundo! 👋</h1>
+  <p>Esta es mi primera página, hecha desde mi tablet.</p>
+  <button onclick="saludar()">Tócame</button>
+  <p id="mensaje"></p>
+
+  <script>
+    function saludar() {
+      document.getElementById("mensaje").textContent = "¡Funciona! 🎉";
+    }
+  </script>
+</body>
+</html>
