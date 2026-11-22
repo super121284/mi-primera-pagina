@@ -1,38 +1,828 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mi primera página</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #0d1117;
-      color: #e6edf3;
-      text-align: center;
-      padding: 40px 20px;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VOX POP // PLOT TWIST! — Brutalist Pop Magazine</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@500;700&family=Syne:wght@700;800&display=swap');
+
+  :root {
+    --electric-blue: #1818ff;
+    --hot-pink: #ff1e8a;
+    --acid-yellow: #ffe600;
+    --tangerine: #ff5500;
+    --deep-void: #0b0b12;
+    --grid-white: #f7f7fb;
+    --mint-neon: #00f5a0;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    background-color: var(--deep-void);
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+    background-size: 28px 28px;
+    font-family: 'Space Grotesk', sans-serif;
+    color: var(--deep-void);
+    padding: 1.5rem 1rem 4rem;
+    overflow-x: hidden;
+  }
+
+  /* Marquee Top Ticker */
+  .ticker-wrap {
+    max-width: 1180px;
+    margin: 0 auto 1.2rem;
+    background: var(--acid-yellow);
+    border: 4px solid var(--deep-void);
+    box-shadow: 7px 7px 0px var(--hot-pink);
+    overflow: hidden;
+    padding: 0.45rem 0;
+    transform: rotate(-0.6deg);
+  }
+
+  .ticker {
+    display: flex;
+    white-space: nowrap;
+    animation: scroll-left 18s linear infinite;
+    font-family: 'Anton', sans-serif;
+    font-size: 1.15rem;
+    letter-spacing: 0.08em;
+    color: var(--deep-void);
+  }
+
+  .ticker span {
+    margin-right: 2.5rem;
+  }
+
+  @keyframes scroll-left {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* Main Modular Pop Magazine Canvas */
+  .pop-canvas {
+    max-width: 1180px;
+    margin: 0 auto;
+    border: 5px solid var(--deep-void);
+    box-shadow: 14px 14px 0px var(--electric-blue), -8px -8px 0px var(--hot-pink);
+    background: var(--grid-white);
+    position: relative;
+  }
+
+  /* Bento Top Grid */
+  .hero-bento {
+    display: grid;
+    grid-template-columns: 1.2fr 1.6fr 0.9fr;
+    border-bottom: 5px solid var(--deep-void);
+  }
+
+  @media (max-width: 900px) {
+    .hero-bento {
+      grid-template-columns: 1fr;
     }
-    button {
-      background: #238636;
-      color: white;
-      border: none;
-      padding: 12px 24px;
-      font-size: 18px;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-  </style>
+  }
+
+  /* Block 1: Electric Blue 3D Wireframe Box */
+  .bento-left {
+    background-color: var(--electric-blue);
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.16) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.16) 1px, transparent 1px);
+    background-size: 22px 22px;
+    padding: 1.8rem;
+    color: #ffffff;
+    border-right: 5px solid var(--deep-void);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .group-badge {
+    display: inline-block;
+    background: var(--acid-yellow);
+    color: var(--deep-void);
+    font-weight: 700;
+    font-size: 0.82rem;
+    padding: 0.35rem 0.8rem;
+    border: 3px solid var(--deep-void);
+    box-shadow: 4px 4px 0px var(--deep-void);
+    text-transform: uppercase;
+    width: fit-content;
+    transform: rotate(-2deg);
+  }
+
+  .bento-left h2 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 2rem;
+    line-height: 1.05;
+    margin: 1.2rem 0 0.6rem;
+    text-transform: uppercase;
+    text-shadow: 3px 3px 0px var(--hot-pink);
+  }
+
+  .bento-left p {
+    font-size: 0.92rem;
+    color: #e0e7ff;
+    background: rgba(11, 11, 18, 0.65);
+    padding: 0.75rem;
+    border: 2px solid #ffffff;
+  }
+
+  /* Block 2: Center Explosive Pop Art Title */
+  .bento-center {
+    background-color: var(--grid-white);
+    background-image:
+      linear-gradient(rgba(11, 11, 18, 0.12) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(11, 11, 18, 0.12) 1px, transparent 1px);
+    background-size: 20px 20px;
+    padding: 2rem 1.8rem;
+    border-right: 5px solid var(--deep-void);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+  }
+
+  .starburst-tag {
+    background: var(--tangerine);
+    color: var(--acid-yellow);
+    font-family: 'Anton', sans-serif;
+    font-size: 1rem;
+    letter-spacing: 0.12em;
+    padding: 0.35rem 1.1rem;
+    border: 3px solid var(--deep-void);
+    box-shadow: 4px 4px 0px var(--deep-void);
+    transform: rotate(2deg);
+    margin-bottom: 0.75rem;
+  }
+
+  .mega-title {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(3.6rem, 6.5vw, 5.4rem);
+    line-height: 0.92;
+    text-transform: uppercase;
+    color: var(--acid-yellow);
+    -webkit-text-stroke: 3px var(--deep-void);
+    text-shadow: 6px 6px 0px var(--hot-pink), 11px 11px 0px var(--electric-blue);
+    letter-spacing: 0.02em;
+    margin-bottom: 1rem;
+    transform: rotate(-1.5deg);
+  }
+
+  .grammar-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    justify-content: center;
+  }
+
+  .pill-pp {
+    background: var(--hot-pink);
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 0.82rem;
+    padding: 0.35rem 0.85rem;
+    border: 3px solid var(--deep-void);
+    box-shadow: 3px 3px 0px var(--deep-void);
+  }
+
+  .pill-ps {
+    background: var(--mint-neon);
+    color: var(--deep-void);
+    font-weight: 700;
+    font-size: 0.82rem;
+    padding: 0.35rem 0.85rem;
+    border: 3px solid var(--deep-void);
+    box-shadow: 3px 3px 0px var(--deep-void);
+  }
+
+  /* Block 3: Hot Pink & Smiley Sticker Box */
+  .bento-right {
+    background: var(--hot-pink);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    color: #ffffff;
+    position: relative;
+  }
+
+  .curved-badge {
+    width: 112px;
+    height: 112px;
+    animation: spin-slow 16s linear infinite;
+  }
+
+  @keyframes spin-slow {
+    100% { transform: rotate(360deg); }
+  }
+
+  .bento-right-box {
+    background: var(--deep-void);
+    color: var(--acid-yellow);
+    padding: 0.8rem;
+    border: 3px solid #ffffff;
+    font-family: 'Anton', sans-serif;
+    font-size: 1.2rem;
+    letter-spacing: 0.05em;
+    line-height: 1.15;
+    transform: rotate(2deg);
+  }
+
+  /* Questions Strip */
+  .questions-strip {
+    background: var(--deep-void);
+    color: #ffffff;
+    padding: 1.1rem 1.8rem;
+    border-bottom: 5px solid var(--deep-void);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.8rem;
+  }
+
+  .q-label {
+    background: var(--acid-yellow);
+    color: var(--deep-void);
+    font-family: 'Anton', sans-serif;
+    padding: 0.3rem 0.8rem;
+    font-size: 1rem;
+    letter-spacing: 0.06em;
+    border: 2px solid #ffffff;
+  }
+
+  .q-item {
+    font-size: 0.88rem;
+    font-weight: 700;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.35rem 0.75rem;
+    border-left: 4px solid var(--hot-pink);
+  }
+
+  /* Interview Profiles Section */
+  .interviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+    background-color: var(--grid-white);
+    background-image:
+      linear-gradient(rgba(11, 11, 18, 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(11, 11, 18, 0.1) 1px, transparent 1px);
+    background-size: 24px 24px;
+    padding: 2.2rem 1.8rem;
+    gap: 2rem;
+    border-bottom: 5px solid var(--deep-void);
+  }
+
+  .pop-card {
+    background: #ffffff;
+    border: 4px solid var(--deep-void);
+    padding: 1.4rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.25s ease;
+  }
+
+  .card-1 {
+    box-shadow: 10px 10px 0px var(--electric-blue);
+    transform: rotate(-0.8deg);
+  }
+
+  .card-2 {
+    box-shadow: 10px 10px 0px var(--hot-pink);
+    transform: rotate(0.9deg);
+  }
+
+  .card-3 {
+    box-shadow: 10px 10px 0px var(--tangerine);
+    transform: rotate(-0.5deg);
+  }
+
+  .pop-card:hover {
+    transform: rotate(0deg) translateY(-6px);
+    z-index: 5;
+  }
+
+  .card-top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+
+  .speaker-tag {
+    background: var(--deep-void);
+    color: var(--acid-yellow);
+    font-family: 'Anton', sans-serif;
+    font-size: 0.95rem;
+    letter-spacing: 0.08em;
+    padding: 0.25rem 0.75rem;
+  }
+
+  .by-tag {
+    background: var(--acid-yellow);
+    color: var(--deep-void);
+    font-weight: 700;
+    font-size: 0.76rem;
+    padding: 0.22rem 0.6rem;
+    border: 2px solid var(--deep-void);
+    text-transform: uppercase;
+  }
+
+  .cadet-pop-frame {
+    position: relative;
+    width: 100%;
+    height: 175px;
+    border: 4px solid var(--deep-void);
+    margin-bottom: 1.1rem;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .frame-bg-1 {
+    background: repeating-linear-gradient(45deg, #1818ff, #1818ff 14px, #3b3bff 14px, #3b3bff 28px);
+  }
+
+  .frame-bg-2 {
+    background: radial-gradient(circle, #ffe600 22%, #ff1e8a 23%, #ff1e8a 48%, #ff5500 49%);
+  }
+
+  .frame-bg-3 {
+    background: linear-gradient(90deg, #0b0b12 50%, #00f5a0 50%);
+  }
+
+  .vertical-schedule-strip {
+    position: absolute;
+    left: 8px;
+    top: 8px;
+    background: #ffffff;
+    border: 2px solid var(--deep-void);
+    padding: 0.2rem 0.45rem;
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    box-shadow: 3px 3px 0px var(--deep-void);
+  }
+
+  .sticker-emoji {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background: var(--acid-yellow);
+    border: 2px solid var(--deep-void);
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    box-shadow: 3px 3px 0px var(--deep-void);
+  }
+
+  .cadet-name-title {
+    font-family: 'Anton', sans-serif;
+    font-size: 1.85rem;
+    line-height: 1;
+    color: var(--deep-void);
+    margin-bottom: 0.25rem;
+    letter-spacing: 0.02em;
+  }
+
+  .cadet-sub {
+    display: inline-block;
+    background: var(--hot-pink);
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 0.78rem;
+    padding: 0.15rem 0.55rem;
+    text-transform: uppercase;
+    margin-bottom: 0.85rem;
+  }
+
+  .card-2 .cadet-sub {
+    background: var(--electric-blue);
+  }
+
+  .card-3 .cadet-sub {
+    background: var(--deep-void);
+    color: var(--mint-neon);
+  }
+
+  .story-body {
+    font-size: 0.93rem;
+    line-height: 1.55;
+    color: #18181b;
+    margin-bottom: 1.1rem;
+  }
+
+  .pp-mark {
+    background: var(--acid-yellow);
+    padding: 0 4px;
+    font-weight: 700;
+    border-bottom: 2px solid var(--deep-void);
+  }
+
+  .ps-mark {
+    background: #bbf7d0;
+    padding: 0 4px;
+    font-weight: 700;
+    border-bottom: 2px solid var(--electric-blue);
+  }
+
+  .pop-quote {
+    background: var(--deep-void);
+    color: #ffffff;
+    padding: 0.9rem 1rem;
+    border: 3px solid var(--deep-void);
+    box-shadow: 5px 5px 0px var(--acid-yellow);
+    font-weight: 700;
+    font-size: 0.9rem;
+    position: relative;
+  }
+
+  .pop-quote span {
+    color: var(--acid-yellow);
+    font-family: 'Anton', sans-serif;
+    font-size: 1.1rem;
+    margin-right: 4px;
+  }
+
+  /* Opinions Section */
+  .opinions-zone {
+    background: var(--electric-blue);
+    background-image: radial-gradient(rgba(255, 255, 255, 0.2) 2px, transparent 2px);
+    background-size: 18px 18px;
+    padding: 2.2rem 1.8rem;
+    color: #ffffff;
+  }
+
+  .opinions-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .opinions-header h3 {
+    font-family: 'Anton', sans-serif;
+    font-size: 2.2rem;
+    color: var(--acid-yellow);
+    -webkit-text-stroke: 1.5px var(--deep-void);
+    text-shadow: 4px 4px 0px var(--deep-void);
+    letter-spacing: 0.04em;
+  }
+
+  .opinions-prompt {
+    background: #ffffff;
+    color: var(--deep-void);
+    font-weight: 700;
+    padding: 0.45rem 1rem;
+    border: 3px solid var(--deep-void);
+    box-shadow: 4px 4px 0px var(--hot-pink);
+    font-size: 0.9rem;
+  }
+
+  .opinions-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.4rem;
+  }
+
+  .op-box {
+    background: #ffffff;
+    color: var(--deep-void);
+    border: 4px solid var(--deep-void);
+    box-shadow: 7px 7px 0px var(--deep-void);
+    padding: 1.2rem;
+  }
+
+  .op-box:nth-child(2) {
+    background: var(--acid-yellow);
+  }
+
+  .op-box:nth-child(3) {
+    background: var(--mint-neon);
+  }
+
+  .op-who {
+    display: inline-block;
+    background: var(--hot-pink);
+    color: #ffffff;
+    font-family: 'Anton', sans-serif;
+    letter-spacing: 0.06em;
+    padding: 0.2rem 0.7rem;
+    border: 2px solid var(--deep-void);
+    margin-bottom: 0.6rem;
+    font-size: 0.95rem;
+  }
+
+  .op-box p {
+    font-size: 0.92rem;
+    font-weight: 500;
+    line-height: 1.5;
+  }
+
+  .pop-footer {
+    background: var(--deep-void);
+    color: var(--acid-yellow);
+    text-align: center;
+    padding: 1rem;
+    font-family: 'Anton', sans-serif;
+    letter-spacing: 0.12em;
+    font-size: 0.95rem;
+  }
+</style>
 </head>
 <body>
-  <h1>¡Hola, mundo! 👋</h1>
-  <p>Esta es mi primera página, hecha desde mi tablet.</p>
-  <button onclick="saludar()">Tócame</button>
-  <p id="mensaje"></p>
 
-  <script>
-    function saludar() {
-      document.getElementById("mensaje").textContent = "¡Funciona! 🎉";
-    }
-  </script>
+  <div class="ticker-wrap">
+    <div class="ticker">
+      <span>★ VOX POP MAGAZINE ★</span>
+      <span>PLOT TWIST! UNEXPECTED CADET STORIES</span>
+      <span>★ GARCÍA, CASTRO & HERRERA ★</span>
+      <span>GRAMMAR: PRESENT PERFECT + PAST SIMPLE</span>
+      <span>★ PRE-INTERMEDIATE 2 SPEAKING PROJECT ★</span>
+      <span>★ VOX POP MAGAZINE ★</span>
+      <span>PLOT TWIST! UNEXPECTED CADET STORIES</span>
+      <span>★ GARCÍA, CASTRO & HERRERA ★</span>
+    </div>
+  </div>
+
+  <main class="pop-canvas">
+
+    <section class="hero-bento">
+      <div class="bento-left">
+        <span class="group-badge">GROUP: GARCÍA, CASTRO & HERRERA</span>
+        <div>
+          <h2>CREATIVE VOX POP EDITION</h2>
+          <p>
+            We interviewed three fellow cadets in white uniform to uncover the funniest, wildest, and most unexpected plot twists at the academy!
+          </p>
+        </div>
+        <svg width="72" height="72" viewBox="0 0 80 80" style="position:absolute; right:12px; bottom:10px; opacity:0.85;">
+          <polygon points="40,8 70,24 70,56 40,72 10,56 10,24" fill="none" stroke="#ffe600" stroke-width="2.5"/>
+          <polyline points="10,24 40,40 70,24" fill="none" stroke="#ffe600" stroke-width="2.5"/>
+          <line x1="40" y1="40" x2="40" y2="72" stroke="#ffe600" stroke-width="2.5"/>
+        </svg>
+      </div>
+
+      <div class="bento-center">
+        <div class="starburst-tag">PRE-INTERMEDIATE 2 • SPEAKING PROJECT</div>
+        <h1 class="mega-title">PLOT<br>TWIST!</h1>
+        <div class="grammar-pills">
+          <span class="pill-pp">PRESENT PERFECT = EXPERIENCE</span>
+          <span class="pill-ps">PAST SIMPLE = WHAT HAPPENED</span>
+        </div>
+      </div>
+
+      <div class="bento-right">
+        <svg class="curved-badge" viewBox="0 0 120 120">
+          <defs>
+            <path id="circlePath" d="M 60, 60 m -42, 0 a 42,42 0 1,1 84,0 a 42,42 0 1,1 -84,0"/>
+          </defs>
+          <circle cx="60" cy="60" r="24" fill="#ffe600" stroke="#0b0b12" stroke-width="3"/>
+          <circle cx="52" cy="55" r="3" fill="#0b0b12"/>
+          <circle cx="68" cy="55" r="3" fill="#0b0b12"/>
+          <path d="M51 64 Q60 73 69 64" stroke="#0b0b12" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <text fill="#ffffff" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="11.2" letter-spacing="2.2">
+            <textPath href="#circlePath">★ REAL STORIES ★ NO FILTER </textPath>
+          </text>
+        </svg>
+
+        <div class="bento-right-box">
+          DONT MISS THESE 3 WILD STORIES!
+        </div>
+      </div>
+    </section>
+
+    <div class="questions-strip">
+      <span class="q-label">THE 3 QUESTIONS:</span>
+      <span class="q-item">1. Have you ever experienced something funny or unexpected?</span>
+      <span class="q-item">2. What happened?</span>
+      <span class="q-item">3. How did you react?</span>
+    </div>
+
+    <section class="interviews-grid">
+
+      <!-- INTERVIEW 1: MATEO (CASTRO) -->
+      <article class="pop-card card-1">
+        <div>
+          <div class="card-top-bar">
+            <span class="speaker-tag">THE SPEAKER #01</span>
+            <span class="by-tag">INTERVIEW BY: CASTRO</span>
+          </div>
+
+          <div class="cadet-pop-frame frame-bg-1">
+            <span class="vertical-schedule-strip">06:00 AM // FORMATION</span>
+            <span class="sticker-emoji">👟</span>
+            <svg width="142" height="156" viewBox="0 0 120 136" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="60" cy="24" rx="31" ry="9.5" fill="#ffffff" stroke="#0b0b12" stroke-width="2.2"/>
+              <path d="M32 25 Q60 11 88 25 L82 35 Q60 31 38 35 Z" fill="#ffffff" stroke="#0b0b12" stroke-width="2"/>
+              <rect x="38" y="33" width="44" height="5.5" fill="#0b0b12"/>
+              <circle cx="60" cy="27" r="4.5" fill="#ffe600" stroke="#0b0b12" stroke-width="1.5"/>
+              <path d="M37 38 Q60 44 83 38 L79 43 Q60 47 41 43 Z" fill="#0b0b12"/>
+              <rect x="52" y="64" width="16" height="14" rx="4" fill="#e0a986" stroke="#0b0b12" stroke-width="1.8"/>
+              <path d="M41 40 C41 58, 48 67, 60 67 C72 67, 79 58, 79 40 Z" fill="#f1bfa0" stroke="#0b0b12" stroke-width="2"/>
+              <circle cx="52" cy="49" r="3" fill="#ffffff" stroke="#0b0b12" stroke-width="1.5"/>
+              <circle cx="52" cy="49" r="1.4" fill="#0b0b12"/>
+              <circle cx="68" cy="49" r="3" fill="#ffffff" stroke="#0b0b12" stroke-width="1.5"/>
+              <circle cx="68" cy="49" r="1.4" fill="#0b0b12"/>
+              <ellipse cx="60" cy="58" rx="4.5" ry="3.5" fill="#ff1e8a" stroke="#0b0b12" stroke-width="1.6"/>
+              <path d="M20 136 L25 85 C27 76 42 73 60 73 C78 73 93 76 95 85 L100 136 Z" fill="#ffffff" stroke="#0b0b12" stroke-width="2.4"/>
+              <path d="M48 72 L60 77 L72 72 L70 81 L60 83 L50 81 Z" fill="#ffffff" stroke="#0b0b12" stroke-width="1.8"/>
+              <circle cx="55" cy="77" r="1.5" fill="#ffe600"/>
+              <circle cx="65" cy="77" r="1.5" fill="#ffe600"/>
+              <rect x="24" y="73" width="19" height="7.5" rx="2" transform="rotate(-12 24 73)" fill="#0b0b12" stroke="#ffe600" stroke-width="1.5"/>
+              <line x1="29" y1="73" x2="30" y2="79" stroke="#ffe600" stroke-width="2"/>
+              <rect x="77" y="69" width="19" height="7.5" rx="2" transform="rotate(12 77 69)" fill="#0b0b12" stroke="#ffe600" stroke-width="1.5"/>
+              <line x1="90" y1="72" x2="89" y2="78" stroke="#ffe600" stroke-width="2"/>
+              <line x1="60" y1="83" x2="60" y2="136" stroke="#0b0b12" stroke-width="1.8"/>
+              <circle cx="60" cy="95" r="2.6" fill="#ffe600" stroke="#0b0b12" stroke-width="1.2"/>
+              <circle cx="60" cy="112" r="2.6" fill="#ffe600" stroke="#0b0b12" stroke-width="1.2"/>
+              <circle cx="60" cy="128" r="2.6" fill="#ffe600" stroke="#0b0b12" stroke-width="1.2"/>
+              <rect x="35" y="91" width="15" height="5" fill="#ff1e8a" stroke="#0b0b12" stroke-width="1.3"/>
+            </svg>
+          </div>
+
+          <h2 class="cadet-name-title">CADET MATEO, 19</h2>
+          <span class="cadet-sub">TWO DIFFERENT SHOES AT 0600!</span>
+
+          <p class="story-body">
+            Mateo <span class="pp-mark">has had</span> several crazy mornings at the academy, and his wildest plot twist <span class="ps-mark">happened</span> during an early inspection. He <span class="ps-mark">got</span> dressed in total darkness and <span class="ps-mark">marched</span> into formation wearing one black boot and one running sneaker! At first, he <span class="ps-mark">felt</span> shocked when his squad <span class="ps-mark">spotted</span> it, but everyone <span class="ps-mark">burst</span> out laughing, so he <span class="ps-mark">smiled</span> and <span class="ps-mark">owned</span> the mistake.
+          </p>
+        </div>
+
+        <div class="pop-quote">
+          <span>“</span>I have never gotten ready faster in the dark, and I have checked my feet twice every morning since!<span>”</span>
+        </div>
+      </article>
+
+      <!-- INTERVIEW 2: SOFÍA (GARCÍA) -->
+      <article class="pop-card card-2">
+        <div>
+          <div class="card-top-bar">
+            <span class="speaker-tag">THE SPEAKER #02</span>
+            <span class="by-tag">INTERVIEW BY: GARCÍA</span>
+          </div>
+
+          <div class="cadet-pop-frame frame-bg-2">
+            <span class="vertical-schedule-strip">WEEKEND LEAVE // STORM</span>
+            <span class="sticker-emoji">⛈️</span>
+            <svg width="142" height="156" viewBox="0 0 120 136" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="60" cy="48" r="20" fill="#1e1b18" stroke="#0b0b12" stroke-width="2"/>
+              <ellipse cx="60" cy="24" rx="30" ry="9" fill="#ffffff" stroke="#0b0b12" stroke-width="2.2"/>
+              <path d="M33 25 Q60 12 87 25 L81 35 Q60 31 39 35 Z" fill="#ffffff" stroke="#0b0b12" stroke-width="2"/>
+              <rect x="39" y="33" width="42" height="5.5" fill="#0b0b12"/>
+              <circle cx="60" cy="27" r="4.5" fill="#ffe600" stroke="#0b0b12" stroke-width="1.5"/>
+              <path d="M38 38 Q60 44 82 38 L78 42 Q60 46 42 42 Z" fill="#0b0b12"/>
+              <rect x="53" y="64" width="14" height="14" rx="4" fill="#f1c2a3" stroke="#0b0b12" stroke-width="1.8"/>
+              <path d="M42 40 C42 57, 49 66, 60 66 C71 66, 78 57, 78 40 Z" fill="#f7d1b7" stroke="#0b0b12" stroke-width="2"/>
+              <circle cx="53" cy="49" r="2.3" fill="#0b0b12"/>
+              <path d="M64 49 Q67 46 70 49" stroke="#0b0b12" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+              <path d="M53 56 Q60 63 67 56 Z" fill="#ff1e8a" stroke="#0b0b12" stroke-width="1.6"/>
+              <path d="M22 136 L27 85 C29 76 43 73 60 73 C77 73 91 76 93 85 L98 136 Z" fill="#ffffff" stroke="#0b0b12" stroke-width="2.4"/>
+              <path d="M49 72 L60 77 L71 72 L69 81 L60 83 L51 81 Z" fill="#ffffff" stroke="#0b0b12" stroke-width="1.8"/>
+              <circle cx="55" cy="77" r="1.5" fill="#ffe600"/>
+              <circle cx="65" cy="77" r="1.5" fill="#ffe600"/>
+              <rect x="25" y="73" width="19" height="7.5" rx="2" transform="rotate(-12 25 73)" fill="#0b0b12" stroke="#ffe600" stroke-width="1.5"/>
+              <line x1="30" y1="73" x2="31" y2="79" stroke="#ffe600" stroke-width="2"/>
+              <line x1="34" y1="72" x2="35" y2="78" stroke="#ffe600" stroke-width="2"/>
+              <rect x="76" y="69" width="19" height="7.5" rx="2" transform="rotate(12 76 69)" fill="#0b0b12" stroke="#ffe600" stroke-width="1.5"/>
+              <line x1="89" y1="72" x2="88" y2="78" stroke="#ffe600" stroke-width="2"/>
+              <line x1="85" y1="71" x2="84" y2="77" stroke="#ffe600" stroke-width="2"/>
+              <line x1="60" y1="83" x2="60" y2="136" stroke="#0b0b12" stroke-width="1.8"/>
+              <circle cx="60" cy="95" r="2.6" fill="#ffe600" stroke="#0b0b12" stroke-width="1.2"/>
+              <circle cx="60" cy="112" r="2.6" fill="#ffe600" stroke="#0b0b12" stroke-width="1.2"/>
+              <circle cx="60" cy="128" r="2.6" fill="#ffe600" stroke="#0b0b12" stroke-width="1.2"/>
+              <path d="M42 93 L42 101 M38 95 L46 95 M38 99 Q42 103 46 99" stroke="#1818ff" stroke-width="2" fill="none"/>
+            </svg>
+          </div>
+
+          <h2 class="cadet-name-title">CADET SOFÍA, 20</h2>
+          <span class="cadet-sub">TRAPPED IN A CARIBBEAN STORM!</span>
+
+          <p class="story-body">
+            Sofía <span class="pp-mark">has never forgotten</span> a sudden tropical storm that <span class="ps-mark">hit</span> Cartagena during her weekend leave. The sky <span class="ps-mark">turned</span> pitch black in three minutes, and she <span class="ps-mark">ran</span> soaked into a tiny harbor café. She <span class="ps-mark">felt</span> annoyed at first, yet she <span class="ps-mark">ended</span> up sharing coffee with two retired captains who <span class="ps-mark">told</span> hilarious sea legends!
+          </p>
+        </div>
+
+        <div class="pop-quote">
+          <span>“</span>The rain surprised everyone on the street, but hiding inside turned a ruined afternoon into an epic memory!<span>”</span>
+        </div>
+      </article>
+
+      <!-- INTERVIEW 3: DANIEL (HERRERA) -->
+      <article class="pop-card card-3">
+        <div>
+          <div class="card-top-bar">
+            <span class="speaker-tag">THE SPEAKER #03</span>
+            <span class="by-tag">INTERVIEW BY: HERRERA</span>
+          </div>
+
+          <div class="cadet-pop-frame frame-bg-3">
+            <span class="vertical-schedule-strip">BUS TERMINAL // CLONE</span>
+            <span class="sticker-emoji">🤯</span>
+            <svg width="142" height="156" viewBox="0 0 120 136" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="60" cy="24" rx="31" ry="9.5" fill="#ffffff" stroke="#0b0b12" stroke-width="2.2"/>
+              <path d="M32 25 Q60 11 88 25 L82 35 Q60 31 38 35 Z" fill="#ffffff" stroke="#0b0b12" stroke-width="2"/>
+              <rect x="38" y="33" width="44" height="5.5" fill="#0b0b12"/>
+              <circle cx="60" cy="27" r="4.5" fill="#ffe600" stroke="#0b0b12" stroke-width="1.5"/>
+              <path d="M37 38 Q60 44 83 38 L79 43 Q60 47 41 43 Z" fill="#0b0b12"/>
+              <rect x="52" y="64" width="16" height="14" rx="4" fill="#c68663" stroke="#0b0b12" stroke-width="1.8"/>
+              <path d="M41 40 C41 58, 48 67, 60 67 C72 67, 79 58, 79 40 Z" fill="#d99b78" stroke="#0b0b12" stroke-width="2"/>
+              <rect x="45" y="45" width="13" height="8" rx="1.5" fill="#0b0b12"/>
+              <rect x="62" y="45" width="13" height="8" rx="1.5" fill="#0b0b12"/>
+              <line x1="58" y1="48" x2="62" y2="48" stroke="#0b0b12" stroke-width="2.5"/>
+              <line x1="47" y1="47" x2="51" y2="51" stroke="#00f5a0" stroke-width="1.5"/>
+              <line x1="64" y1="47" x2="68" y2="51" stroke="#00f5a0" stroke-width="1.5"/>
+              <path d="M53 58 Q60 62 67 57" stroke="#0b0b12" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+              <path d="M20 136 L25 85 C27 76 42 73 60 73 C78 73 93 76 95 85 L100 136 Z" fill="#ffffff" stroke="#0b0b12" stroke-width="2.4"/>
+              <path d="M48 72 L60 77 L72 72 L70 81 L60 83 L50 81 Z" fill="#ffffff" stroke="#0b0b12" stroke-width="1.8"/>
+              <circle cx="55" cy="77" r="1.5" fill="#ffe600"/>
+              <circle cx="65" cy="77" r="1.5" fill="#ffe600"/>
+              <rect x="24" y="73" width="19" height="7.5" rx="2" transform="rotate(-12 24 73)" fill="#0b0b12" stroke="#ffe600" stroke-width="1.5"/>
+              <line x1="29" y1="73" x2="30" y2="79" stroke="#ffe600" stroke-width="2"/>
+              <rect x="77" y="69" width="19" height="7.5" rx="2" transform="rotate(12 77 69)" fill="#0b0b12" stroke="#ffe600" stroke-width="1.5"/>
+              <line x1="90" y1="72" x2="89" y2="78" stroke="#ffe600" stroke-width="2"/>
+              <line x1="60" y1="83" x2="60" y2="136" stroke="#0b0b12" stroke-width="1.8"/>
+              <circle cx="60" cy="95" r="2.6" fill="#ffe600" stroke="#0b0b12" stroke-width="1.2"/>
+              <circle cx="60" cy="112" r="2.6" fill="#ffe600" stroke="#0b0b12" stroke-width="1.2"/>
+              <circle cx="60" cy="128" r="2.6" fill="#ffe600" stroke="#0b0b12" stroke-width="1.2"/>
+              <rect x="35" y="91" width="15" height="5" fill="#00f5a0" stroke="#0b0b12" stroke-width="1.3"/>
+            </svg>
+          </div>
+
+          <h2 class="cadet-name-title">CADET DANIEL, 21</h2>
+          <span class="cadet-sub">MEETING HIS TWIN STRANGER!</span>
+
+          <p class="story-body">
+            Daniel <span class="pp-mark">has experienced</span> bizarre coincidences while traveling, and his craziest one <span class="ps-mark">occurred</span> at a bus station last year. He <span class="ps-mark">sat</span> next to a guy who <span class="ps-mark">carried</span> the exact same backpack and <span class="ps-mark">was reading</span> the exact same navigation book! Daniel <span class="ps-mark">froze</span> in total disbelief, <span class="ps-mark">laughed</span> out loud, and <span class="ps-mark">chatted</span> with his "twin" the whole ride.
+          </p>
+        </div>
+
+        <div class="pop-quote">
+          <span>“</span>I have seen weird coincidences before, but finding my exact bag and book next to me felt like a glitch in the matrix!<span>”</span>
+        </div>
+      </article>
+
+    </section>
+
+    <section class="opinions-zone">
+      <div class="opinions-header">
+        <h3>FINAL OPINIONS // THE VERDICT</h3>
+        <div class="opinions-prompt">“Which story surprised you the most, and why?”</div>
+      </div>
+
+      <div class="opinions-cards">
+        <div class="op-box">
+          <span class="op-who">CADET CASTRO</span>
+          <p>
+            "Mateo's story surprised me the most because I have rushed in the dark before 0600 too, and turning an inspection disaster into a laugh takes serious confidence!"
+          </p>
+        </div>
+
+        <div class="op-box">
+          <span class="op-who">CADET GARCÍA</span>
+          <p>
+            "Sofía's story surprised me the most because bad weather usually ruins plans, yet she flipped a tropical storm into an unforgettable hangout with veteran captains!"
+          </p>
+        </div>
+
+        <div class="op-box">
+          <span class="op-who">CADET HERRERA</span>
+          <p>
+            "Daniel's story surprised me the most because running into a stranger with the exact same book and backpack at the exact same stop sounds straight out of a movie!"
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="pop-footer">
+      ESCUELA NAVAL DE CADETES ALMIRANTE PADILLA ★ VOX POP PROJECT: GARCÍA, CASTRO & HERRERA ★ 2026
+    </footer>
+
+  </main>
+
 </body>
 </html>
